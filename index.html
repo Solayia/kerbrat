@@ -102,7 +102,7 @@
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://images.unsplash.com/photo-1631545806609-4e81e5e6e0ae?w=1920&q=85') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85') center/cover no-repeat;
             z-index: 0;
         }
         .hero-bg::after {
@@ -169,17 +169,19 @@
         .hero-trust-text span { display: block; font-weight: 400; color: var(--blue-200); font-size: 0.78rem; }
 
         .hero-visual { position: relative; display: flex; justify-content: center; }
-        .hero-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 460px; width: 100%; }
-        .hero-gal-img {
-            border-radius: var(--radius-lg); overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.25); border: 3px solid rgba(255,255,255,0.15);
-            transition: transform 0.3s;
+        .hero-img-card {
+            position: relative; border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3); border: 3px solid rgba(255,255,255,0.15);
+            max-width: 480px; width: 100%;
         }
-        .hero-gal-img:hover { transform: scale(1.03); }
-        .hero-gal-img img { width: 100%; height: 100%; object-fit: cover; }
-        .hero-gal-img.tall { grid-row: span 2; }
-        .hero-gal-img.tall img { aspect-ratio: 3/4; }
-        .hero-gal-img.small img { aspect-ratio: 4/3; }
+        .hero-img-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+        .hero-img-card .hero-img-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(12,74,110,0.9));
+            padding: 28px 24px 20px; color: var(--white);
+        }
+        .hero-img-card .hero-img-label p { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95rem; }
+        .hero-img-card .hero-img-label small { font-size: 0.8rem; opacity: 0.85; }
         .hero-float {
             position: absolute; background: var(--white); border-radius: var(--radius);
             padding: 14px 18px; box-shadow: var(--shadow-lg);
@@ -422,7 +424,7 @@
             .hero-trust { justify-content: center; }
             .hero-text { margin: 0 auto 32px; }
             .hero h1 { font-size: 2.4rem; }
-            .hero-gallery { max-width: 360px; margin: 0 auto; }
+            .hero-img-card { max-width: 360px; margin: 0 auto; }
             .why-grid { grid-template-columns: 1fr; text-align: center; }
             .why-photo { max-width: 340px; margin: 0 auto; }
             .why-list { max-width: 500px; margin: 0 auto; }
@@ -457,9 +459,8 @@
             .btn-lg { width: 100%; justify-content: center; }
             .zone-features { grid-template-columns: 1fr; }
             .zone-stats { grid-template-columns: 1fr; }
-            .hero-gallery { grid-template-columns: 1fr; max-width: 260px; }
-            .hero-gal-img.tall { grid-row: span 1; }
-            .hero-gal-img.tall img { aspect-ratio: 4/3; }
+            .hero-img-card { max-width: 260px; }
+            .hero-img-card img { aspect-ratio: 3/4; }
         }
     </style>
 </head>
@@ -534,15 +535,11 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-gallery">
-                    <div class="hero-gal-img tall">
-                        <img src="https://images.unsplash.com/photo-1679303777007-c6c4522beb02?w=600&q=80" alt="Climatisation murale moderne">
-                    </div>
-                    <div class="hero-gal-img small">
-                        <img src="https://images.unsplash.com/photo-1631545806609-4e81e5e6e0ae?w=600&q=80" alt="Split climatisation design interieur">
-                    </div>
-                    <div class="hero-gal-img small">
-                        <img src="assets/images/clim-installation.jpg" alt="Installation Bosch par Entreprise Kerbrat">
+                <div class="hero-img-card">
+                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&q=80" alt="Climatisation moderne dans un salon contemporain">
+                    <div class="hero-img-label">
+                        <p>Climatisation dans un interieur moderne</p>
+                        <small>Installation soignee, confort toute l'annee</small>
                     </div>
                 </div>
                 <div class="hero-float f1">
